@@ -1,0 +1,32 @@
+{% extends 'vertical.html' %}
+{% load static %}
+
+{% block title %}Panel Demo Prueba{% endblock title %}
+
+{% block page_title %}
+    {% include 'partials/topbar.html' %}
+{% endblock page_title %}
+
+{% block extra_css %}
+<link href="{% static 'custom/css/lms.css' %}" rel="stylesheet">
+{% endblock extra_css %}
+
+{% block page_content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title mb-2">Panel Demo - Mini LMS</h4>
+                <p class="text-muted mb-0">
+                    Si se visualiza esta tarjeta con el layout vertical de Highdmin,
+                    la integración base quedó correcta.💥💢☢
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock page_content %}
+
+{% block extra_javascript %}
+<script src="{% static 'custom/js/lms.js' %}"></script>
+{% endblock extra_javascript %}
