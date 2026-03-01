@@ -383,7 +383,13 @@
                         <img src="{% static '/images/users/avatar-1.jpg' %}" width="32"
                             class="rounded-circle me-lg-2 d-flex" alt="user-image">
                         <span class="d-lg-flex flex-column gap-1 d-none">
-                            <h5 class="my-0">Maxine K.</h5>
+                            <h5 class="my-0">
+                                {% if request.user.is_authenticated %}
+                                    {{ request.user.name|default:request.user.username }}
+                                {% else %}
+                                    Invitado
+                                {% endif %}
+                            </h5>
                         </span>
                         <i class="ri-arrow-down-s-line d-none d-lg-block align-middle ms-2"></i>
                     </a>
@@ -394,10 +400,10 @@
                         </div>
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item">
-                            <i class="ri-account-circle-line me-1 fs-16 align-middle"></i>
-                            <span class="align-middle">My Account</span>
-                        </a>
+                    <a href="{% url 'users:perfil' %}" class="dropdown-item">
+                        <i class="ri-account-circle-line me-1 fs-16 align-middle"></i>
+                        <span class="align-middle">Mi perfil</span>
+                    </a>
 
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item">
@@ -426,9 +432,9 @@
                         </a>
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item active fw-semibold text-danger">
+                        <a href="{% url 'account_logout' %}" class="dropdown-item active fw-semibold text-danger">
                             <i class="ri-logout-box-line me-1 fs-16 align-middle"></i>
-                            <span class="align-middle">Sign Out</span>
+                            <span class="align-middle">Cerrar sesión</span>
                         </a>
                     </div>
                 </div>

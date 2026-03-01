@@ -48,10 +48,10 @@
                     </div>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
-                        <i class="ri-account-circle-line me-1 fs-16 align-middle"></i>
-                        <span class="align-middle">My Account</span>
-                    </a>
+                <a href="{% url 'users:perfil' %}" class="dropdown-item">
+                    <i class="ri-account-circle-line me-1 fs-16 align-middle"></i>
+                    <span class="align-middle">Mi perfil</span>
+                </a>    
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item">
@@ -80,9 +80,9 @@
                     </a>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item active fw-semibold text-danger">
+                    <a href="{% url 'account_logout' %}" class="dropdown-item active fw-semibold text-danger">
                         <i class="ri-logout-box-line me-1 fs-16 align-middle"></i>
-                        <span class="align-middle">Sign Out</span>
+                        <span class="align-middle">Cerrar sesión</span>
                     </a>
                 </div>
             </div>
@@ -101,13 +101,18 @@
             </li>
 
             <li class="side-nav-item">
-                <a href="{% url "users:panel_demo"  %}" class="side-nav-link">
+                <a href="{% url 'users:panel' %}" class="side-nav-link">
                     <span class="menu-icon"><i class="ri-camera-line fs-32 lh-1"></i></span>
                     <span class="menu-text">Mi Panel </span>
                 </a>
             </li>
 
-            
+            <li class="side-nav-item">
+                <a href="{% url 'users:perfil' %}" class="side-nav-link">
+                    <span class="menu-icon"><i class="ri-user-3-line"></i></span>
+                    <span class="menu-text"> Mi perfil </span>
+                </a>
+            </li>
 
             <li class="side-nav-item">
                 <a href="{% url 'pages:dynamic_pages' template_name='apps-calendar' %}" class="side-nav-link">
